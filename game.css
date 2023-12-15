@@ -1,0 +1,266 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    overflow-y: hidden;
+}
+
+body {
+    background-image: url("./img/bgrnd.jpeg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    margin-top: 20px;
+    color: gold;
+    overflow-x: hidden;
+    width: 100%;
+    animation: slidein 3s ease-in 1s both running;
+}
+
+@keyframes slidein {
+    from {
+        transform: translateX(-100%);
+    }
+    to {
+        transform: translateX(0);
+    }
+}
+
+
+.gameFrame {
+    display: flex;
+}
+
+.gamebtns {
+    display: flex;
+    justify-content: space-around;
+}
+
+.dashboard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 105px;
+}
+span{
+    color: gold;
+    font-size: 70px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+    height: 300px;
+    background-size: cover;
+    justify-content: space-between;
+    border: 2px solid gold;
+    width: 600px;
+    background-image: url("./img/bgrnd1.jpeg");
+}
+.grid-item {
+    background-image: url("./img/bgrnd1.jpeg");
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 2px solid #f8ce06;
+}
+.grid-item img {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+.result {
+    color: gold;
+    font-family: "Arial Rounded MT Bold", serif;
+    font-size: 3rem;
+}
+
+
+
+.player1 {
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    display: none;
+}
+.player2{
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    display: none;
+}
+
+.image1 {
+    border: 2px solid black;
+    width: 300px;
+    height: 300px;
+    padding: 10px;
+    background-color: #2B2A2D;
+    /*transform: rotate(45deg);
+    /*animation: rotation 2s linear infinite ;
+    /* Ajustez la durée selon vos besoins*/
+}
+.btnStCl {
+    display: block;
+}
+.modal-title{
+    display: none;
+}
+.btnClose{
+    background-color: #fa0606;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 30px;
+}
+
+
+.btnStart{
+    background-color: #06fa37;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    cursor: pointer;
+    margin: 30px;
+}
+.gamebtns{
+    display: flex;
+    justify-content: space-between;
+}
+.btnc{
+    background-image: url("./img/c.jpeg");
+    background-size: cover;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 80px;
+    height: 100px;
+    margin: 5px;
+}
+.btnf{
+    background-image: url("./img/f.jpeg");
+    width: 80px;
+    height: 100px;
+    background-size: cover;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 5px;
+}
+.btnp{
+    background-image: url("./img/p.jpeg");
+    width: 80px;
+    height: 100px;
+    background-size: cover;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    margin: 5px;
+}
+
+button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 50px;
+    width: 100px;
+    position: relative;
+    font-size: 18px;
+    text-transform: uppercase;
+    border: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    transition: 31ms cubic-bezier(.5, .7, .4, 1);
+
+}
+
+button:before {
+    content: attr(alt);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    inset: 0;
+    font-size: 15px;
+    font-weight: bold;
+    color: white;
+    letter-spacing: 4px;
+    opacity: 1;
+}
+
+button:active {
+    box-shadow: none;
+    transform: translateY(7px);
+    transition: 35ms cubic-bezier(.5, .7, .4, 1);
+}
+
+button:hover:before {
+    transition: all .0s;
+    transform: translateY(100%);
+    opacity: 0;
+}
+
+button i {
+    color: white;
+    font-size: 15px;
+    font-weight: bold;
+    letter-spacing: 4px;
+    font-style: normal;
+    transition: all 2s ease;
+    transform: translateY(-20px);
+    opacity: 0;
+}
+
+button:hover i {
+    transition: all .2s ease;
+    transform: translateY(0px);
+    opacity: 1;
+}
+
+button:hover i:nth-child(1) {
+    transition-delay: 0.045s;
+}
+
+button:hover i:nth-child(2) {
+    transition-delay: calc(0.045s * 3);
+}
+
+button:hover i:nth-child(3) {
+    transition-delay: calc(0.045s * 4);
+}
+
+button:hover i:nth-child(4) {
+    transition-delay: calc(0.045s * 5);
+}
+
+button:hover i:nth-child(6) {
+    transition-delay: calc(0.045s * 6);
+}
+
+button:hover i:nth-child(7) {
+    transition-delay: calc(0.045s * 7);
+}
+
+button:hover i:nth-child(8) {
+    transition-delay: calc(0.045s * 8);
+}
+
+button:hover i:nth-child(9) {
+    transition-delay: calc(0.045s * 9);
+}
+
+button:hover i:nth-child(10) {
+    transition-delay: calc(0.045s * 10);
+}

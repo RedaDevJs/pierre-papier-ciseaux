@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>GAMIA</title>
+    <script src="./game.js"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="./game.css">
+</head>
+<body>
+
+<div class="text-center">
+    <h1 class="title text-3xl font-bold uppercase" id="title">
+        Bienvenue dans votre jeu <br>
+    </h1>
+</div>
+<div class="modal1 mx-auto transform overflow-hidden rounded-lg bg-white text-center mt-10 sm:my-8 sm:w-full sm:max-w-sm">
+    <div class="content m-2">
+        <div class="flex flex-col items-center">
+            <div class="mb-4">
+                <img src="./img/bonjour.gif" alt="" id="">
+            </div>
+            <div class=" text-2xl font-bold leading-6 text-gray-900 uppercase">
+                Règles du jeu
+            </div>
+            <div class="m-4 text-lg text-black">
+                <p class="text-left">
+                    Le jeu Pierre – Feuille – Ciseaux est un petit jeu convivial qui se joue avec les mains à un contre
+                    un ou contre plusieurs adversaires.<br>
+                    Vous avez 5 tentatives. Allez !!
+                </p>
+            </div>
+        </div>
+    </div>
+    <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+        <div class="button-container flex items-center justify-center w-full">
+            <button type="button" class="inline-flex justify-center rounded-md bg-green-600 px-6 py-1 text-sm font-semi bold text-white shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-green-300 sm:w-auto"
+                    onclick=startPlay() >JOUER
+            </button>
+
+        </div>
+    </div>
+</div>
+
+
+<div class="gameFrame">
+    <div class="player1" id="player1">
+        <span class="score1" id="score1">0</span>
+        <img class="image1" id="plyr" src="./img/plyr.png" alt="Image du Joueur">
+        <div class="gamebtns" id="gamebtns">
+            <button class="btnp" onclick="game('pp')"></button>
+            <button class="btnc" onclick="game('cc')"></button>
+            <button class="btnf" onclick="game('ff')"></button>
+            <audio id="win">
+                <source src="effects/win.wav" type="audio/mp3">
+            </audio>
+            <audio id="lose">
+                <source src="effects/lose.mp3" type="audio/mp3">
+            </audio>
+            <audio id="egalite">
+                <source src="effects/egalite.mp3" type="audio/mp3">
+            </audio>
+        </div>
+
+    </div>
+    <div class="dashboard ">
+        <div class="grid-container">
+            <div class="grid-item"><img class="playerImage" id="playerImage" src="" alt=""></div>
+            <div class="grid-item bg-gold"><h4 class="result" id="result"></h4></div>
+            <div class="grid-item"><img class="computerImage" id="computerImage" src="" alt=""></div>
+        </div>
+       <!-- <div class="btnStCl">
+            <button class="btnClose" onclick="window.close()">Quitter</button>
+            <button class="btnStart" onclick=startPlay()>Start</button>
+        </div>-->
+    </div>
+    <div class="player2" id="player2">
+        <span class="score2" id="score2">0</span>
+        <img class="image1" id="pc" src="./img/pc.jpeg" alt="">
+    </div>
+</div>
+<div class="modal2 hidden relative  h-screen z-10" aria-labelledby="modal-title" role="dialog" aria-modal="true">
+    <!--
+      Background backdrop, show/hide based on modal state.
+
+      Entering: "ease-out duration-300"
+        From: "opacity-0"
+        To: "opacity-100"
+      Leaving: "ease-in duration-200"
+        From: "opacity-100"
+        To: "opacity-0"
+    -->
+    <div class="fixed inset-0 bg-gray-500 bg-opacity-75 transition-opacity"></div>
+
+    <div class="fixed inset-0 z-10 w-screen  overflow-y-auto">
+        <div class="flex min-h-full items-end justify-center p-4 text-center sm:items-center sm:p-0">
+            <!--
+              Modal panel, show/hide based on modal state.
+
+              Entering: "ease-out duration-300"
+                From: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+                To: "opacity-100 translate-y-0 sm:scale-100"
+              Leaving: "ease-in duration-200"
+                From: "opacity-100 translate-y-0 sm:scale-100"
+                To: "opacity-0 translate-y-4 sm:translate-y-0 sm:scale-95"
+            -->
+            <div class="relative transform overflow-hidden rounded-lg bg-white text-left shadow-xl transition-all sm:my-8 sm:w-full sm:max-w-lg">
+                <div class="bg-white px-4 pb-4 pt-5 sm:p-6 sm:pb-4">
+                    <div class="sm:flex sm:items-start">
+                        <div class="">
+                            <img src="" alt="" srcset="" id="emoji">
+                        </div>
+
+                        <div class="mt-20 text-center  sm:text-left">
+                            <h3 class="text-base font-bold leading-6 text-gray-900" id="modal-title"></h3>
+                            <div class="mt-2">
+                                <p class="text-sm text-gray-500" id="modal-text"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-gray-50 px-4 py-3 sm:flex sm:flex-row-reverse sm:px-6">
+                    <div class="mx-auto">
+                        <button type="button"
+                                class="okBtn hidden mt-3 inline-flex justify-center rounded-md bg-green-600 px-8 py-1 text-sm font-semi bold text-white shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-green-300 sm:w-auto"
+                                onclick=startPlay()>Rejouer</button>
+                        <button type="button"
+                                class="cancelBtn hidden mt-3 inline-flex justify-center rounded-md bg-red-600 px-8 py-1 text-sm font-semi bold text-white shadow-sm hover:bg-red-500 sm:w-auto"
+                                onclick=window.close()>Quitter</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
